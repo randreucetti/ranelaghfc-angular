@@ -15,9 +15,13 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'times.tabletop'
   ])
-  .config(function($routeProvider) {
+  .config(function($routeProvider, TabletopProvider) {
+    TabletopProvider.setTabletopOptions({
+      key: 'https://docs.google.com/spreadsheets/d/1HZX_QkcwlVzkNiPUsn-yjRX9GrUVLxwWgqUBTRP58MM/edit?usp=sharing',
+    });
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -32,6 +36,9 @@ angular
       .when('/roster', {
         templateUrl: 'views/roster.html',
         controller: 'RosterCtrl',
+        resolve: {
+          tabletopData: 'Tabletop'
+        },
         controllerAs: 'roster'
       })
       .when('/contact', {

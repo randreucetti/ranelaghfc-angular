@@ -17,7 +17,5 @@ describe('Controller: RosterCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(RosterCtrl.awesomeThings.length).toBe(3);
-  });
+
 });
